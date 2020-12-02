@@ -26,7 +26,6 @@ Webmail, social media, cloud storage를 비롯한 많은 종류의 온라인 서
 * 얼마나 보편적인 CAPCTHA의 특징을 가지고 있는가?
 * 잘 정제된 traning image를 얻기 힘들다고 가정했을 때, traning image가 너무 많지는 않은가?
 
-위 기준에 따라 우리는  아래 사진과 같이 1) 회원가입시 가장 흔히 볼 수 있는 CAPTCHA이며, 2) noise line, blur 등 text-based CAPTCHA의 대표적인 성격을 잘 띄고 있고, 3) traning image 1000개, test image 50개의 작은 규모의 dataset을 고르게 되었다. (dataset from Wilhelmy, Rodrigo Rosas, Horacio)
-
-
-![]({{ site.url }}/img/CAPTCHA_BEFORE.png)
+위 기준에 따라 우리는  아래 사진과 같이 1) 회원가입시 가장 흔히 볼 수 있는 CAPTCHA이며, 2) noise line, blur 등 text-based CAPTCHA의 대표적인 성격을 잘 띄고 있고, 3) traning image 1000개, test image 50개의 작은 규모의 dataset을 고르게 되었다. (dataset from Wilhelmy, Rodrigo Rosas, Horacio) 
+![]({{ site.url }}/img/CAPTCHA_BEFORE.PNG)
+![]({{ site.url }}/img/CAPTCHA.JPG)
