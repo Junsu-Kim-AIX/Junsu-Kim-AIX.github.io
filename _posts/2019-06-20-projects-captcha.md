@@ -50,9 +50,11 @@ CAPTCHA defense mechanism을 파훼하는 데 사용되는 머신러닝 알고�
 * 잘 정제된 traning image를 얻기 힘들다고 가정했을 때, traning image가 너무 많지는 않은가?
 
 위 기준에 따라 우리는  아래 사진과 같이 1) 회원가입시 가장 흔히 볼 수 있는 CAPTCHA이며, 2) noise line, blur 등 text-based CAPTCHA의 대표적인 성격을 잘 띄고 있고, 3) traning image 1000개, test image 50개의 작은 규모의 dataset을 고르게 되었습니다. (dataset from Wilhelmy, Rodrigo Rosas, Horacio) 
+
 ![]({{ site.url }}/img/CAPTCHA_BEFORE.PNG)
 
 # 3. Proposed Framework
+
 ![]({{ site.url }}/img/PROPOSED_ARCH.png)
 
 
@@ -72,11 +74,74 @@ for j in range(1000):
     ret,thresh1 = cv2.threshold(X_train[j],127,255,cv2.THRESH_BINARY_INV)
 ~~~
 
+![]({{ site.url }}/img/PROPOSED_THRESHOLD.png)
+
 * Morphological opening
+~~~ ruby
+X_train_pre=[] #Preprocessed X_train set
+
+for n in range(num_train_samples):
+
+    ret,thresh1 = cv2.threshold(X_train[n],127,255,cv2.THRESH_BINARY_INV) #Otsu's segment
+    kernel = np.ones((3,3),np.uint8) 
+    opening = cv2.morphologyEx(thresh1, cv2.MORPH_OPEN, kernel) # Morphological opening
+    X_train_pre.append(opening)
+
+plt.imshow(X_train_pre[0], cmap='gray')
+~~~
+
+![]({{ site.url }}/img/PROPOSED_MOR.png)
 
 * Horizontal cropping
+~~~ ruby
+# Horizontal cropping
+intensity = 0 
+intensity_array = []
+len_column = len(X_train[0][0])
+len_row = len(X_train[0])
+
+for n in range(num_train_samples):
+    for k in range(len_column):
+        for m in range(len_row):
+                intensity += X_train_pre[n][m,k]
+        
+        if(intensity > 255*15):
+            intensity_array.append(k)
+            
+        intensity = 0
+        
+    col1 = min(intensity_array)
+    col2 = max(intensity_array) + 5
+   
+    X_train_pre[n] = X_train_pre[n][:, col1:col2]
+    del intensity_array[:]
+
+plt.imshow(X_train_pre[0],cmap='gray')
+~~~
+
+![]({{ site.url }}/img/PROPOSED_HOR.png)
 
 * Segmentation
+
+~~~ ruby
+X_train_segment=[]
+
+for n in range(1000):
+    for num in range(5):
+        x_leng = len(X_train_pre[n][0])
+        x1 = (int)(num*x_leng/5)
+        x2 = (int)((num+1)*x_leng/5)
+        img = X_train_pre[n][:, x1:x2]
+        X_train_segment.append(img)
+
+f, axes = plt.subplots(nrows=1, ncols=5)
+for k in range(5):
+    axes[k].imshow(X_train_segment[k], cmap='gray')
+    axes[k].set_yticks([])
+plt.show()
+~~~
+
+![]({{ site.url }}/img/PROPOSED_SEG.png)
 
 ### Challenging Problem 2 : Small Training Set
 
