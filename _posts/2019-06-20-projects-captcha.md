@@ -74,9 +74,15 @@ for j in range(1000):
     ret,thresh1 = cv2.threshold(X_train[j],127,255,cv2.THRESH_BINARY_INV)
 ~~~
 
+
+
 ![]({{ site.url }}/img/PROPOSED_THRESHOLD.png)
 
-* Morphological opening
+
+
+
+* Morphological opening : binary inversion 이후, 남아있는 noise line을 제거해주기 위해서 image속 작은 object를 지우기 위해 사용하는 방법인 opening을 이용합니다. opening은 주어진 커널을 통해 dilation 이후 erosion하여 main letter와 멀리 떨어져 있는 object를 지울 수 있습니다.
+
 ~~~ ruby
 X_train_pre=[] #Preprocessed X_train set
 
@@ -93,6 +99,7 @@ plt.imshow(X_train_pre[0], cmap='gray')
 ![]({{ site.url }}/img/PROPOSED_MOR.png)
 
 * Horizontal cropping
+
 ~~~ ruby
 # Horizontal cropping
 intensity = 0 
@@ -122,6 +129,7 @@ plt.imshow(X_train_pre[0],cmap='gray')
 ![]({{ site.url }}/img/PROPOSED_HOR.png)
 
 * Segmentation
+
 
 ~~~ ruby
 X_train_segment=[]
