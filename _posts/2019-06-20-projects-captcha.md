@@ -76,7 +76,7 @@ for j in range(1000):
 
 
 
-* ![]({{ site.url }}/img/PREPROPOSED_THRESHOLD.PNG)
+* ![]({{ site.url }}/img/PREPROSED_THRESHOLD.PNG)
 
 
 
@@ -163,7 +163,7 @@ plt.show()
 
 * Transfer learning
 
-* ![]({{ site.url }}/img/Transferlearning.PNG)
+* ![]({{ site.url }}/img/TRANSFER.PNG)
 
 또한 적은 traning sample로 부터 오는 overfitting 문제를 해결하기 위해 image-net으로 pre-trained된 모델을 가져오는 transfer learning approach를 적용하였습니다. transfer learning model로는 VGG-19을 선택하였고 마지막에 2개의 fully connected layer만 학습되도록 설정하였습니다.
 
@@ -174,6 +174,10 @@ plt.show()
 # 4. Experiment
 
 ### Comparison Group
+
+| Alexnet | VGG19 | Proposed |
+|====    |====  |====       |
+|with reprocessing | with preprocessing | data augmentation + transfer learning|
 
 ### Result
 
