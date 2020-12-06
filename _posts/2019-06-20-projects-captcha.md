@@ -76,7 +76,7 @@ for j in range(1000):
 
 
 
-![]({{ site.url }}/img/PREPOSED_THRESHOLD.png)
+![]({{ site.url }}/img/PREPROPOSED_THRESHOLD.png)
 
 
 
@@ -96,7 +96,7 @@ for n in range(num_train_samples):
 plt.imshow(X_train_pre[0], cmap='gray')
 ~~~
 
-![]({{ site.url }}/img/PREPOSED_MOR.png)
+![]({{ site.url }}/img/PREPROPOSED_MOR.png)
 
 * Horizontal cropping : 상대적으로 정확한 segmentation을 위해 image detection에 필요없는 여백부분을 제거합니다. 
 
@@ -126,7 +126,7 @@ for n in range(num_train_samples):
 plt.imshow(X_train_pre[0],cmap='gray')
 ~~~
 
-![]({{ site.url }}/img/PREPOSED_HOR.png)
+![]({{ site.url }}/img/PREPROPOSED_HOR.png)
 
 * Segmentation : proposed model에 입력할 letter 단위 input을 만들기 위해 주어진 image를 1/5씩 자릅니다. horizontal cropping을 통해서 일괄적으로 1/5씩 자르더라도 resonable한 letter단위 input을 만들어낼 수 있습니다.
 
@@ -149,13 +149,27 @@ for k in range(5):
 plt.show()
 ~~~
 
-![]({{ site.url }}/img/PREPOSED_SEG.png)
+![]({{ site.url }}/img/PREPROPOSED_SEG.png)
 
 ### Challenging Problem 2 : Small Training Set
 
 * Data augmentation
 
+![]({{ site.url }}/img/PREPROPOSED_AUG.png)
+
+주어진 task를 해결하는데 가장 큰 문제는 training sample이 매우적고 strict한 방식으로 segmentation이 일괄적으로 이루어져서 신뢰성이 낮은 데이터에 overfitting이 일어난다는 점이었습니다. 실제 data 수집 없이 이를 해결하기 위해 기존의 input 다양성을 늘리는 data augmentation approach를 적용하였습니다.
+
+위에 제시된 그림처럼 data augmentation approach는 training sample을 padding, cropping, rotation 하는데, 주어진 task에 최적화하여 segmentation을 overlap 하여 데이터 양을 늘리기로 하였습니다. 이를 통해 5000개의 training sample을 15000개로 늘릴 수 있었습니다.
+
 * Transfer learning
+
+![]({{ site.url }}/img/Transferlearning.png)
+
+또한 적은 traning sample로 부터 오는 overfitting 문제를 해결하기 위해 image-net으로 pre-trained된 모델을 가져오는 transfer learning approach를 적용하였습니다. transfer learning model로는 VGG-19을 선택하였고 마지막에 2개의 fully connected layer만 학습되도록 설정하였습니다.
+
+
+
+
 
 # 4. Experiment
 
