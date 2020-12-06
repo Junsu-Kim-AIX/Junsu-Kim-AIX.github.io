@@ -76,7 +76,7 @@ for j in range(1000):
 
 
 
-![]({{ site.url }}/img/PROPOSED_THRESHOLD.png)
+![]({{ site.url }}/img/PREPOSED_THRESHOLD.png)
 
 
 
@@ -96,9 +96,9 @@ for n in range(num_train_samples):
 plt.imshow(X_train_pre[0], cmap='gray')
 ~~~
 
-![]({{ site.url }}/img/PROPOSED_MOR.png)
+![]({{ site.url }}/img/PREPOSED_MOR.png)
 
-* Horizontal cropping
+* Horizontal cropping : 상대적으로 정확한 segmentation을 위해 image detection에 필요없는 여백부분을 제거합니다. 
 
 ~~~ ruby
 # Horizontal cropping
@@ -126,9 +126,9 @@ for n in range(num_train_samples):
 plt.imshow(X_train_pre[0],cmap='gray')
 ~~~
 
-![]({{ site.url }}/img/PROPOSED_HOR.png)
+![]({{ site.url }}/img/PREPOSED_HOR.png)
 
-* Segmentation
+* Segmentation : proposed model에 입력할 letter 단위 input을 만들기 위해 주어진 image를 1/5씩 자릅니다. horizontal cropping을 통해서 일괄적으로 1/5씩 자르더라도 resonable한 letter단위 input을 만들어낼 수 있습니다.
 
 
 ~~~ ruby
@@ -149,7 +149,7 @@ for k in range(5):
 plt.show()
 ~~~
 
-![]({{ site.url }}/img/PROPOSED_SEG.png)
+![]({{ site.url }}/img/PREPOSED_SEG.png)
 
 ### Challenging Problem 2 : Small Training Set
 
