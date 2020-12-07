@@ -281,15 +281,15 @@ for n in range(num_test_samples):
 
 ###### 다만 좀 더 다양한 set의 CAPTCHA image들과 다양한 algorithms을 적용시켜 CAPTCHA-solving-framework의 유연성을 높였습니다. 하지만 처음에 제시하다시피 본 연구의 목적은 simple한 algorithm과 skill을 가지고도 CAPTCHA를 무력화 시킬 수 있음을 보여주는 것이기 때문에 위에 제시된 논문들의 방법은 본 연구에 적합하지 않다고 생각했습니다.
 
-##### 역할
+## 역할
 * ###### 김승현 : 발표 및 영상촬영
 * ###### 김준수 : 코딩 및 아이디어 제시
 * ###### 이상호 : 홈페이지 디자인
 * ###### 황은별 : 자료조사
 
-##### Source Code
+## Source Code
 
-<href='https://github.com/Junsu-Kim-AIX/AIX-Project'>https://github.com/Junsu-Kim-AIX/AIX-Project
+[https://github.com/Junsu-Kim-AIX/AIX-Project](https://github.com/Junsu-Kim-AIX/AIX-Project)
 
 
 # Reference
