@@ -21,7 +21,7 @@ comments: true
 
 # 2. Background
 
-### CAPTCHA
+## CAPTCHA
 ###### CAPTCHA는 온라인 서비스의 보안을 위해 bot과 일반유저를 구분하는 test로 크게 다음과 같이 2가지로 분류 될 수 있습니다. 
 
 * ###### Text-based CAPTCHAs : 유저가 noise가 끼어있고 distorted 되어있는 글자를 인식하고 타이핑하는 방식
@@ -32,7 +32,7 @@ comments: true
 ![]({{ site.url }}/img/BACKGROUND_CAPTCHA.PNG)
 
 
-### Machine Learning Algorithms for Image detection
+## Machine Learning Algorithms for Image detection
 ###### CAPTCHA defense mechanism을 파훼하는 데 사용되는 머신러닝 알고리즘은 image detection과 classificiation에 주로 이용되는 알고리즘으로 CNN (Convolutional Neural Network)가 주로 이용되고 있습니다.
 
 * ###### Alexnet : Alex Krizhevsky가 Ilya Sutskever and Geoffrey Hinton와 함께 만든 CNN으로 2012년 ImageNet Large Scale Visual Recognition Challenge (ILSVRC) top-5 error 15.3%를 달성하며 1위를 차지했습니다. 
@@ -46,7 +46,7 @@ comments: true
 * ###### 얼마나 보편적인 CAPCTHA의 특징을 가지고 있는가?
 * ###### 잘 정제된 traning image를 얻기 힘들다고 가정했을 때, traning image가 너무 많지는 않은가?
 
-######## 위 기준에 따라 우리는  아래 사진과 같이 1) 회원가입시 가장 흔히 볼 수 있는 CAPTCHA이며, 2) noise line, blur 등 text-based CAPTCHA의 대표적인 성격을 잘 띄고 있고, 3) traning image 1000개, test image 50개의 작은 규모의 dataset을 고르게 되었습니다. (dataset from Wilhelmy, Rodrigo Rosas, Horacio) 
+###### 위 기준에 따라 우리는  아래 사진과 같이 1) 회원가입시 가장 흔히 볼 수 있는 CAPTCHA이며, 2) noise line, blur 등 text-based CAPTCHA의 대표적인 성격을 잘 띄고 있고, 3) traning image 1000개, test image 50개의 작은 규모의 dataset을 고르게 되었습니다. (dataset from Wilhelmy, Rodrigo Rosas, Horacio) 
 
 ![]({{ site.url }}/img/CAPTCHA_BEFORE.PNG)
 
@@ -61,7 +61,7 @@ comments: true
 
 * ###### Inference session : 50장의 test sample들이 trained model에 입력되며 결과를 예측합니다. 모델의 정확도를 측정하기 위해 예측값과 실제값을 비교하는 추가 workload가 존재합니다.
 
-### Preprocessing
+## Preprocessing
 
 * ###### Image thresholding : 주어진 task는 배경과 문자열이 확실하게 구분할 수 있으므로 0~255 값인 image intensity 중 절반 값인 127을 기준으로 높으면 흰색(255), 낮으면 검은색(0)으로 변환시키는 binary inversion을 수행합니다. 
 
@@ -263,19 +263,19 @@ for n in range(num_test_samples):
 
 # 5. Experiment
 
-### Result
+## Result
 
 * ![]({{ site.url }}/img/RESULT_ALEX.PNG)
 
 # 6. Conclusion
 
-### Analysis
+## Analysis
 ###### image thresholding, morphological opening, horizontal cropping, segmentation으로 이루어진 data preprocessing과 alexnet을 이용하여 총 250개의 letter 중에서 239개의 letter를 맞추며 95.6%의 정확도를 기록했습니다. 따라서 본 연구는 text-based CAPTCHA 중 하나를, 기본적인 computer vision techniques와 machine learning algorthims을 가지고 무력화 시킬 수 있음을 보여주었습니다. 
 
-### Limitation and Future work
-###### 비록 주어진 dataset이 많은 noise와 적은 training sample로 인해 text-based CAPTCHA중 파훼하기 어려운 편에 속하나 다른 sophisticated한 text-based CAPTCHA mechanism을 대상으로 하지는 않아, 모든 text-based CAPTCHA defense mechanism이 보안에 취약함을 증명하긴 힘듭니다. 하지만 본 연구의 실험결과가 보여주듯, CAPTCHA mechanism이 fix되있고 발전하지 않는다면, 충분히 해당 CAPTCHA에 optimized된 bot 공격에 취약할 것임을 밝힙니다. 
+## Limitation and Future work
+###### 비록 주어진 dataset이 많은 noise와 적은 training sample로 인해 text-based CAPTCHA중 파훼하기 어려운 편에 속하나 다른 sophisticated한 text-based CAPTCHA mechanism을 대상으로 하지는 않아, 모든 text-based CAPTCHA defense mechanism이 보안에 취약함을 증명하긴 힘듭니다. 하지만 본 연구의 실험결과가 보여주듯, CAPTCHA mechanism이 fix되있고 발전하지 않는다면, 충분히 해당 CAPTCHA에 optimized된 bot 공격에 취약할 것임을 밝힙니다. 추가연구를 계획한다면 최대한 본 연구와 비슷한 수준의 기술로, 좀 더 다양한 캡챠 이미지를 무력화 시킬 수 있다면, 본 연구가 제시하는 결론의 타당성을 높여줄 것이라 예상합니다.
 
-### Related Work
+## Related Work
 
 ###### CAPCHA defensce mechanism을 공격하는 수많은 연구들이 발표되었지만, 대부분의 연구는 주어진 CAPTCHA image를 본 연구에서와 비슷한 방식으로 preprocessing하고, optimized된 machine learning algorithms을 사용하여 공격의 정밀성을 높입니다. [1]-[7]
 
@@ -286,6 +286,11 @@ for n in range(num_test_samples):
 * ###### 김준수 : 코딩 및 아이디어 제시
 * ###### 이상호 : 홈페이지 디자인
 * ###### 황은별 : 자료조사
+
+##### Source Code
+
+![https://github.com/Junsu-Kim-AIX/AIX-Project](https://github.com/Junsu-Kim-AIX/AIX-Project)
+
 
 # Reference
 
