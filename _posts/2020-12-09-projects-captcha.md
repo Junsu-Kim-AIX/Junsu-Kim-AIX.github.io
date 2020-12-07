@@ -148,7 +148,7 @@ plt.show()
 
 * ![]({{ site.url }}/img/PREPROPOSED_SEG.PNG)
 
-### Training
+## Training
 
 ~~~ ruby
  def AlexNet(input_size, num_classes, summary=True):
@@ -228,7 +228,7 @@ plt.show()
  hist = model.fit(X_train, Y_train, batch_size=64, epochs=50, verbose=1, validation_data=(X_valid, Y_valid), callbacks=[checkpoint])
 ~~~
 
-### Inference
+## Inference
 ~~~ ruby
 model = AlexNet(input_size, num_classes=num_classes)
 model.load_weights("alex_latest_model.hdf5")
@@ -289,7 +289,7 @@ for n in range(num_test_samples):
 
 ##### Source Code
 
-![https://github.com/Junsu-Kim-AIX/AIX-Project](https://github.com/Junsu-Kim-AIX/AIX-Project)
+<href='https://github.com/Junsu-Kim-AIX/AIX-Project'>https://github.com/Junsu-Kim-AIX/AIX-Project
 
 
 # Reference
