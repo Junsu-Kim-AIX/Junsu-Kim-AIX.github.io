@@ -19,6 +19,9 @@ comments: true
 
 ###### Webmail, social media, cloud storage를 비롯한 많은 종류의 온라인 서비스들은 abusing bot의 위협으로 부터 벗어나기 위해 CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart )를 defense mechanism으로 도입하기 시작하였습니다. 그러나, computer vision과 machine learning algorithm의 발전에 따라, CAPTCHA는 여전히 위 기술을 사용하는 abusing bot에 의해 파훼될 수 있습니다. 저희는 본 연구를 통해 CAPTCHA 중 하나의 scheme을 파훼하는 framework를 제시함으로서 간단한 computer vision skill과 machine learning algorithm으로도 CAPTCHA가 뚫릴 수 있음을 보여주고, 이를통해 text-based CAPTCHA defense mechanism이 취약함을 알리며 많은 온라인 서비스 보안의 안정성에 대해 물음표를 던질 것입니다.
 
+## 소개영상
+[https://youtu.be/CItH0XOrQc4](https://youtu.be/CItH0XOrQc4)
+
 # 2. Background
 
 ## CAPTCHA
